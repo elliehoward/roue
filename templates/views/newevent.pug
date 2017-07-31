@@ -1,0 +1,35 @@
+extends ../layouts/default
+
+block intro
+	.container
+		h1 New Event Form
+		
+block content
+	.container
+		if eventSubmitted
+			h3 Thanks for your submission, we will be in touch.
+		else
+			.row: .col-sm-8.col-md-6
+				form(method='post', enctype='multipart/form-data')
+					input(type='hidden', name='action', value='newevent')
+					.form-group
+						label Your Name
+						input(type='text', name='creator', value=formData.creator).form-control
+					.form-group
+						label Email
+						input(type='email', name='email', value=formData.email).form-control
+					.form-group
+						label Phone
+						input(type='text', name='phone', value=formData.phone, placeholder='(optional)').form-control
+					.form-group
+						label Event Title
+						input(type='text', name='title', value=formData.title, placeholder='Name your event').form-control
+					.form-group
+						label Add a picture (optional)
+						//- input(name='picture', type='file').form-control
+						input(type='file', name='picture', value=formData.picture).form-control
+					.form-group
+						label Description
+						textarea(name='description', placeholder='Describe your event here' rows=5).form-control= formData.description
+					.form-actions
+						button(type='submit').btn.btn-primary Submit Event
