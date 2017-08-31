@@ -11,6 +11,7 @@ html
 
 		title= title || 'reliquaryofuncommonexperience'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		link()
 
 		//- Customise the stylesheet for your site by editing /public/styles/site.sass
 		link(href="/styles/site.css", rel="stylesheet")
@@ -104,6 +105,10 @@ html
 			script(src='/keystone/js/content/editor.js')
 
 		//- Add scripts that are globally required by your site here.
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+		script(src='https://widget.cloudinary.com/global/all.js')
+		
+
 
 		//- Include template-specific javascript files by extending the js block
 		block js
