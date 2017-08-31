@@ -28,7 +28,7 @@ block content
 						label Add a picture (optional)
 						//- input(name='picture', type='file').form-control
 						//- input(type='file', name='picture', value=formData.picture).form-control
-						a(href='#', id='upload_widget_opener')
+						a(href='#', id='upload_widget_opener') UPLOAD PICS
 							form
 								div(id='uploaded')
 					.form-group
@@ -36,11 +36,12 @@ block content
 						textarea(name='description', placeholder='Describe your event here' rows=5).form-control= formData.description
 					.form-actions
 						button(type='submit').btn.btn-primary Submit Event
-						
-					script.
-						$(document).ready(function() {
-  						document.getElementById("upload_widget_opener").addEventListener("click", function() {
-    						cloudinary.openUploadWidget({ cloud_name: 'ddi7rsjlq', upload_preset: 'yyliiypi', theme: 'purple', thumbnails: '#uploaded'},
-      					function(error, result) { console.log(error, result) });
-  							}, false);
-								});
+				script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+				script(src='https://widget.cloudinary.com/global/all.js')
+				script.
+					$(document).ready(function() {
+						document.getElementById('upload_widget_opener').addEventListener('click', function() {
+							cloudinary.openUploadWidget({ cloud_name: 'ddi7rsjlq', upload_preset: 'yyliiypi', theme: 'purple', thumbnails: '#uploaded'},
+								function(error, result) { console.log(error, result) });
+								}, false);
+							});
